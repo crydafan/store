@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   allow_unauthenticated_access only: %i[ index show ]
   before_action :set_product, only: %i[ show edit update destroy ]
+  around_action :switch_locale
 
   def index
     @products = Product.all
@@ -45,6 +46,11 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.expect(product: [:name, :description])
+    params.expect(product: [ :name, :description, :featured_image ])
+  end
+
+  def switch_locale(&action)
+    locale = params[:locale] || I18n.default_locale
+    I18n.with_locale(locale, &action)
   end
 end
