@@ -40,6 +40,9 @@ module GeneratedUrlHelpersModule
   def passwords_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def product_subscribers_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def product_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }

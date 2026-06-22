@@ -43,6 +43,9 @@ module GeneratedPathHelpersModule
   def product_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def product_subscribers_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def products_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
